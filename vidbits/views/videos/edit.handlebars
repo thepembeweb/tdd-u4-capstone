@@ -1,0 +1,33 @@
+<div class="update-container">
+    <div class="update-column">
+        <h2 class="form-title">Edit "{{video.title}}"</h2>
+
+        <form class="input-form" action="/videos/{{video._id}}/updates" method="post" >
+            <label class="form-label" for="url" >URL</label>
+            <input id="url-input" name="url" value="{{video.url}}"/>
+            {{#with video.errors.url as |error|}}
+            <span class="error">{{error.message}}</span>
+            {{/with}}
+
+            <label class="form-label" for="title">Title</label>
+            <input id="title-input" name="title" maxlength="50" value="{{video.title}}"/>
+            {{#with video.errors.title as |error|}}
+            <span class="error">{{error.message}}</span>
+            {{/with}}
+            
+            <label class="form-label" for="description">Description</label>
+            <textarea id="description-input" name="description">{{video.description}}</textarea>
+            {{#with video.errors.description as |error|}}
+            <span class="error">{{error.message}}</span>
+            {{/with}}
+
+            <div class="form-navigation">
+                <button class="input-button" id="submit-button" type="submit">
+                Submit
+                </button>
+            </div>
+            
+        </form>
+    </div>
+    </div>
+</div>
